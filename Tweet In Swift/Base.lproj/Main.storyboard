@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tweet_In_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +19,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpG-Ce-6wy">
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eBW-u6-t8a"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0cg-Tn-AgT"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXr-Du-tD6">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textViewDidEndOnExit:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="Yo6-Dc-Jim"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCS-EP-1G1">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZz-Zd-ARg">
+                                <state key="normal" image="tweet"/>
+                                <connections>
+                                    <action selector="sendTweet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9pV-qB-hhs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="lXr-Du-tD6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3do-Dc-8OQ"/>
+                            <constraint firstItem="lXr-Du-tD6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7NN-N1-uD3"/>
+                            <constraint firstItem="dCS-EP-1G1" firstAttribute="leading" secondItem="lXr-Du-tD6" secondAttribute="leading" id="9rW-Gi-LFf"/>
+                            <constraint firstAttribute="trailing" secondItem="CpG-Ce-6wy" secondAttribute="trailing" id="Nhq-v2-OWj"/>
+                            <constraint firstItem="lXr-Du-tD6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="TZA-e9-dBN"/>
+                            <constraint firstItem="dCS-EP-1G1" firstAttribute="top" secondItem="lXr-Du-tD6" secondAttribute="bottom" constant="138" id="ToH-vr-WNg"/>
+                            <constraint firstItem="CpG-Ce-6wy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.25" id="UeL-8n-1uq"/>
+                            <constraint firstItem="lXr-Du-tD6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="clc-5M-DaW"/>
+                            <constraint firstItem="AZz-Zd-ARg" firstAttribute="top" secondItem="CpG-Ce-6wy" secondAttribute="bottom" constant="8" id="dxe-hC-WsJ"/>
+                            <constraint firstItem="AZz-Zd-ARg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jFO-nS-k6c"/>
+                            <constraint firstItem="lXr-Du-tD6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mql-Ar-Za4"/>
+                            <constraint firstItem="CpG-Ce-6wy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zq2-P1-Qz1"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DLv-hw-Ch8" appends="YES" id="hIF-YD-iBi"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="CpG-Ce-6wy" id="Qul-nd-CzD"/>
+                        <outlet property="tweetTextView" destination="lXr-Du-tD6" id="aEY-ec-WDl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DLv-hw-Ch8">
+                    <connections>
+                        <action selector="tapOnBackGround:" destination="BYZ-38-t0r" id="DDh-n2-Ma2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tweet" width="100" height="41"/>
+    </resources>
 </document>
